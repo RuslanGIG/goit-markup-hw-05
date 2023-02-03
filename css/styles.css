@@ -4,7 +4,7 @@
   --HOVER: #434455;
   --white: #ffffff;
   --ocean: #404bbf;
-  --transition-dur-and-func: 2250ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-dur-and-func: 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 /* основной текст NAVY BLUE  color: #2E2F42*/
@@ -128,6 +128,30 @@ button {
   color: var(--IRIS);
 }
 
+.scale {
+  color: var(--NAVY-BLUE);
+  position: relative;
+  color: var(--ocean);
+}
+
+.scale::after {
+  content: " ";
+  position: absolute;
+  left: 0;
+  bottom: -24px;
+  width: 100%;
+  height: 4px;
+  border-radius: 2px;
+  background-color: var(--IRIS);
+  transform: scaleX(0);
+  transition: var(--transition-dur-and-func);
+}
+
+.scale:is(:hover, :focus)::after {
+  transform: scaleX(1);
+  border-radius: 4px;
+}
+
 .current {
   padding-bottom: 26px;
   position: relative;
@@ -143,6 +167,8 @@ button {
   height: 4px;
   border-radius: 2px;
   background-color: var(--IRIS);
+  transform: scaleX(1);
+  transition: var(--transition-dur-and-func);
 }
 
 .header-contact {
@@ -596,6 +622,7 @@ button {
   width: calc((100% - 48px) / 3);
   margin-right: 24px;
   box-shadow: 0px 1px 6px rgba(46, 47, 66, 0.08);
+  transition: box-shadow var(--transition-dur-and-func);
 }
 
 .portfolio-item:hover {
@@ -631,6 +658,34 @@ button {
   border-top: 0;
 }
 
+.team-list-link-wrapper {
+  position: relative;
+  display: block;
+  overflow: hidden;
+}
+
+.card-hiden {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  transform: scaleX(0);
+
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.5;
+  letter-spacing: 0.02em;
+  color: #f4f4fd;
+  padding: 40px 32px;
+  background-color: var(--IRIS);
+  transition: transform var(--transition-dur-and-func);
+}
+
+.team-list-link:is(:hover, :focus) .card-hiden {
+  transform: scaleX(1);
+}
 /* end */
 
 /* MODAL WINDOW */
